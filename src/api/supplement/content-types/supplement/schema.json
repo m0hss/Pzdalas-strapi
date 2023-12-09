@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "supplements",
+  "info": {
+    "singularName": "supplement",
+    "pluralName": "supplements",
+    "displayName": "supplement"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}
