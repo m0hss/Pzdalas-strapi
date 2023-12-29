@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "singularName": "address",
+    "pluralName": "addresses",
+    "displayName": "Address",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "country": {
+      "type": "string",
+      "default": "Belgium"
+    },
+    "num_house": {
+      "type": "integer"
+    },
+    "street": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "post_code": {
+      "type": "biginteger"
+    },
+    "province": {
+      "type": "string"
+    }
+  }
+}

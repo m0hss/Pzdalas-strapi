@@ -41,9 +41,6 @@
     "favourite": {
       "type": "boolean"
     },
-    "index": {
-      "type": "integer"
-    },
     "ratings_count": {
       "type": "decimal"
     },
@@ -61,9 +58,6 @@
       "relation": "manyToMany",
       "target": "api::price.price",
       "mappedBy": "products"
-    },
-    "static_price": {
-      "type": "decimal"
     }
   }
 }

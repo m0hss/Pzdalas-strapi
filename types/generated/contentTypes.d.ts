@@ -659,7 +659,12 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    picture: Attribute.Media & Attribute.Required;
+    picture: Attribute.Media;
+    addresses: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::address.address'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -670,6 +675,42 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAddressAddress extends Schema.CollectionType {
+  collectionName: 'addresses';
+  info: {
+    singularName: 'address';
+    pluralName: 'addresses';
+    displayName: 'Address';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    country: Attribute.String & Attribute.DefaultTo<'Belgium'>;
+    num_house: Attribute.Integer;
+    street: Attribute.String;
+    city: Attribute.String;
+    post_code: Attribute.BigInteger;
+    province: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::address.address',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::address.address',
       'oneToOne',
       'admin::user'
     > &
@@ -727,13 +768,13 @@ export interface ApiPricePrice extends Schema.CollectionType {
   };
   attributes: {
     size: Attribute.String;
-    price: Attribute.String;
     currency: Attribute.String;
     products: Attribute.Relation<
       'api::price.price',
       'manyToMany',
       'api::product.product'
     >;
+    price: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -774,7 +815,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     average_rating: Attribute.Decimal;
     favourite: Attribute.Boolean;
-    index: Attribute.Integer;
     ratings_count: Attribute.Decimal;
     special_ingredient: Attribute.String;
     ingredients: Attribute.String;
@@ -784,7 +824,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::price.price'
     >;
-    static_price: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -881,6 +920,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::address.address': ApiAddressAddress;
       'api::category.category': ApiCategoryCategory;
       'api::price.price': ApiPricePrice;
       'api::product.product': ApiProductProduct;

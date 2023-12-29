@@ -15,9 +15,6 @@
     "size": {
       "type": "string"
     },
-    "price": {
-      "type": "string"
-    },
     "currency": {
       "type": "string"
     },
@@ -26,6 +23,9 @@
       "relation": "manyToMany",
       "target": "api::product.product",
       "inversedBy": "prices"
+    },
+    "price": {
+      "type": "decimal"
     }
   }
 }
