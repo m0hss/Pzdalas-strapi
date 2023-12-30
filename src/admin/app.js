@@ -1,4 +1,4 @@
-import logo from "./extensions/pizzadalas.png";
+// import logo from "./extensions/pizzadalas.png";
 
 const config = {
   head: {
