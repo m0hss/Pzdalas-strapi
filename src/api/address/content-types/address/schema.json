@@ -14,22 +14,28 @@
   "attributes": {
     "country": {
       "type": "string",
-      "default": "Belgium"
+      "default": "Belgium",
+      "required": true
     },
     "num_house": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "street": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "city": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "post_code": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "required": true
     },
     "province": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

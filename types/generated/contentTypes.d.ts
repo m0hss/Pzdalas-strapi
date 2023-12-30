@@ -694,12 +694,14 @@ export interface ApiAddressAddress extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    country: Attribute.String & Attribute.DefaultTo<'Belgium'>;
-    num_house: Attribute.Integer;
-    street: Attribute.String;
-    city: Attribute.String;
-    post_code: Attribute.BigInteger;
-    province: Attribute.String;
+    country: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Belgium'>;
+    num_house: Attribute.Integer & Attribute.Required;
+    street: Attribute.String & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
+    post_code: Attribute.BigInteger & Attribute.Required;
+    province: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
