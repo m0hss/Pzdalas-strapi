@@ -700,8 +700,8 @@ export interface ApiAddressAddress extends Schema.CollectionType {
     num_house: Attribute.Integer & Attribute.Required;
     street: Attribute.String & Attribute.Required;
     city: Attribute.String & Attribute.Required;
-    post_code: Attribute.BigInteger & Attribute.Required;
     province: Attribute.String & Attribute.Required;
+    post_code: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

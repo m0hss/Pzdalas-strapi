@@ -29,11 +29,11 @@
       "type": "string",
       "required": true
     },
-    "post_code": {
-      "type": "biginteger",
+    "province": {
+      "type": "string",
       "required": true
     },
-    "province": {
+    "post_code": {
       "type": "string",
       "required": true
     }
